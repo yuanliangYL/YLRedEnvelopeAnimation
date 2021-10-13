@@ -9,11 +9,23 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    //let dotView = YLAlternateAnimations(frame: UIScreen.main.bounds)
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        YLAlternateAnimations.showInView(view: view)
+
+        DispatchQueue.main.asyncAfter(deadline:DispatchTime.now()+5) {
+            YLAlternateAnimations.hideInView(view: self.view)
+        }
+
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+    }
 
 }
 
